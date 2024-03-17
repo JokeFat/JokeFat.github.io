@@ -16,12 +16,11 @@
   </div></b> <h2 class="c e" style="margin-left:40px;"><ss><img src="https://www.freeiconspng.com/uploads/yellow-star-png-image--yellow-star-png-image-2.png" width="20" alt="Star Icon" class="ss" /></ss>Stylify.CSS<ss><img src="https://www.freeiconspng.com/uploads/yellow-star-png-image--yellow-star-png-image-2.png" width="20" alt="Star Icon" class="ss" /></ss></h2>
   <ul class="navbar-nav">
     <a href="index.html" class="nav-link2">Home</a>
-      <a href="./loading" class="nav-link2">Loading</a>
-       <a href="navs.html" class="nav-link2">Navs</a>
-       <a href="cards.html" class="nav-link2">Cards</a>
-       <a href="pops.html" class="nav-link2">Pops</a>
-       <a href="customization.html" class="nav-link2">Customization</a>
-       <a href="inputs.html" class="nav-link2">Inputs</a>
+       <a href="./navs" class="nav-link2">Navs</a>
+       <a href="./cards" class="nav-link2">Cards</a>
+       <a href="./pops" class="nav-link2">Pops</a>
+       <a href="./customization" class="nav-link2">Customization</a>
+       <a href="./inputs" class="nav-link2">Inputs</a>
   </ul>
   <a onclick="toggleDarkMode()"><img width="30" height="30" style="margin-right:-15px; margin-left:20px;" src="https://dl.dropbox.com/scl/fi/q5zx9ro87amx3nalvwcmw/night-mode.png?rlkey=efjkt807d08sxois6wro3yxw3&raw=1" alt="moon-symbol"/></a>
 </nav>
@@ -29,13 +28,12 @@
   <div class="menu-wrap">
     <ul class="menu">
     <li class="nav-item"></li>
-        <li class="nav-item2"><a href="#a" class="nav-link2">Home</a></li>
-        <li class="nav-item2"><a href="#l" class="nav-link2">Loading</a></li>
-        <li class="nav-item2"><a href="#n" class="nav-link2">Navs</a></li>
-        <li class="nav-item2"><a href="#b" class="nav-link2">Cards</a></li>
-        <li class="nav-item2"><a href="#s" class="nav-link2">Pops</a></li>
-        <li class="nav-item2"><a href="#u" class="nav-link2">Customization</a></li>
-        <li class="nav-item2"><a href="#d" class="nav-link2">Inputs</a></li>
+        <li class="nav-item2"><a href="#" class="nav-link2">Home</a></li>
+        <li class="nav-item2"><a href="./navs" class="nav-link2">Navs</a></li>
+        <li class="nav-item2"><a href="./cards" class="nav-link2">Cards</a></li>
+        <li class="nav-item2"><a href="./pops" class="nav-link2">Pops</a></li>
+        <li class="nav-item2"><a href="./customization" class="nav-link2">Customization</a></li>
+        <li class="nav-item2"><a href="./inputs" class="nav-link2">Inputs</a></li>
     </ul>
   </div>
 </div>
@@ -69,6 +67,8 @@
                 </div>
             </div>
             <br />
+            <div class="divider"></div>
+            <br />
              <h3 class="c">B</h3>
             <div>
                 <div class="card">
@@ -76,6 +76,8 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
+            <br />
+            <div class="divider"></div>
             <br />
              <h3 class="c">C</h3>
             <div>
@@ -88,8 +90,67 @@
           </div>
     </div>
     <br />
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
+  <script>const navLinks = document.querySelectorAll('.nav-link');
+  const navLinkst = document.querySelectorAll('.nav-link2');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadingOverlay.classList.add('loading');
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 50,
+            behavior: 'smooth'
+          });
+
+          setTimeout(() => {
+            loadingOverlay.classList.remove('loading');
+          }, 600);
+        }
+      });
+    });
+
+    window.addEventListener('load', () => {
+      loadingOverlay.classList.add('loading');
+      setTimeout(() => {
+        loadingOverlay.classList.remove('loading');
+      }, 2000);
+    });
+    
+    navLinkst.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadingOverlay.classList.add('loading');
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 50,
+            behavior: 'smooth'
+          });
+
+          setTimeout(() => {
+            loadingOverlay.classList.remove('loading');
+          }, 600);
+        }
+      });
+    });
+
+    window.addEventListener('load', () => {
+      loadingOverlay.classList.add('loading');
+      setTimeout(() => {
+        loadingOverlay.classList.remove('loading');
+      }, 2000);
+    });
+    </script>
     <script>
 document.addEventListener('DOMContentLoaded', function () {
   const menuToggle = document.getElementById('menu-toggle');
