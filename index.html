@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stylify</title>
     <link rel="stylesheet" href="https://raw.githack.com/JokeFat/modernity/main/css/stylify2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <nav class="navbar2" bg="grayscale30" style="background: rgba(10, 0, 0, 0.8);box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);backdrop-filter: blur(16.5px);-webkit-backdrop-filter: blur(16.5px)">
  <b> <div class="navbar-brand">
     <button class="navbar-toggler" id="menu-toggle">
@@ -28,7 +31,7 @@
   <div class="menu-wrap">
     <ul class="menu">
     <li class="nav-item"></li>
-        <li class="nav-item2"><a href="#" class="nav-link2">Home</a></li>
+        <li class="nav-item2"><a href="index.html" class="nav-link2">Home</a></li>
         <li class="nav-item2"><a href="./navs" class="nav-link2">Navs</a></li>
         <li class="nav-item2"><a href="./cards" class="nav-link2">Cards</a></li>
         <li class="nav-item2"><a href="./pops" class="nav-link2">Pops</a></li>
@@ -56,153 +59,57 @@
     <!-- Main Content -->
     <br />
         <h2 class="c" style="border-radius:20px;">Stylify Components</h2>
-        <div class="bento-grid k">
-        
+
         <div class="drk" bg="grayscale30" cg="grayscale1" style="border-radius:10px">
             <div>
-            <h3 class="c">A</h3>
+            <h3 class="c">Loader</h3>
                 <div class="card">
-                    <img src="https://via.placeholder.com/600" alt="Component A">
-                    <p>Lorem ipsum dolor</p>
-                </div>
+                   <center> <img src="https://dl.dropbox.com/scl/fi/yzwtje4bd5by4uhsj707w/Screenshot_20240319_142608_Sololearn.png?rlkey=4yusa8d86njj4inqilep4zdpp&raw=1" alt="loader"> </center>
+                    <pre>
+                        <code>
+                            &lt;div class="loading-overlay" id="loadingOverlay">
+    &lt;div class="loading-spinner">&lt;/div>
+  &lt;/div>
+                        </code>
+                    </pre>
             </div>
             <br />
             <div class="divider"></div>
             <br />
-             <h3 class="c">B</h3>
-            <div>
+            <h3 class="c">JS</h3>
                 <div class="card">
-                    <img src="https://via.placeholder.com/600" alt="Component B" class="mx-auto d-block">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
+                  <center>  <img src="https://dl.dropbox.com/scl/fi/yzwtje4bd5by4uhsj707w/Screenshot_20240319_142608_Sololearn.png?rlkey=4yusa8d86njj4inqilep4zdpp&raw=1" alt="loader"> </center>
+                    <pre>
+                        <code>
+                            &lt;div class="loading-overlay" id="loadingOverlay">
+    &lt;div class="loading-spinner">&lt;/div>
+  &lt;/div>
+                        </code>
+                    </pre>
+            </div>         
             </div>
-            <br />
-            <div class="divider"></div>
-            <br />
-             <h3 class="c">C</h3>
-            <div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/600" alt="Component C" class="mx-auto d-block">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
             </div>
-            <br />
-          </div>
-    </div>
     <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
   </div>
-  <script>const navLinks = document.querySelectorAll('.nav-link');
-  const navLinkst = document.querySelectorAll('.nav-link2');
-    const loadingOverlay = document.getElementById('loadingOverlay');
-
-    //navLinks.forEach(link => {
-      //link.addEventListener('click', (e) => {
-        //e.preventDefault();
-        //loadingOverlay.classList.add('loading');
-        //const targetId = link.getAttribute('href').substring(1);
-        //const targetSection = document.getElementById(targetId);
-
-        //if (targetSection) {
-          //window.scrollTo({
-            //top: targetSection.offsetTop - 50,
-            //behavior: 'smooth'
-          //});
-
-         // setTimeout(() => {
-            //loadingOverlay.classList.remove('loading');
-          //}, 600);
-      //  }
-     // });
-  //  });
-
-   // window.addEventListener('load', () => {
-      // loadingOverlay.classList.add('loading');
-     // setTimeout(() => {
-        // loadingOverlay.classList.remove('loading');
-    //  }, 2000);
- //   });
-    
-  //  navLinkst.forEach(link => {
-      //link.addEventListener('click', (e) => {
-       // e.preventDefault();
-       // loadingOverlay.classList.add('loading');
-     //   const targetId = link.getAttribute('href').substring(1);
-       // const targetSection = document.getElementById(targetId);
-
-        //if (targetSection) {
-        //  window.scrollTo({
-           // top: targetSection.offsetTop - 50,
-           // behavior: 'smooth'
-         // });
-
-         // setTimeout(() => {
-            //loadingOverlay.classList.remove('loading');
-        //  }, 600);
-      //  }
-    //  });
- //   });
-
-    window.addEventListener('load', () => {
-      loadingOverlay.classList.add('loading');
-      setTimeout(() => {
-        loadingOverlay.classList.remove('loading');
-      }, 2000);
-    });
-    </script>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const menuToggle = document.getElementById('menu-toggle');
-  const offcanvasMenu = document.querySelector('.offcanvas');
-  const content = document.querySelector('.content');
-  const overlay = document.createElement('div');
-  overlay.className = 'overlay';
-  document.body.appendChild(overlay);
-
-  menuToggle.addEventListener('click', function () {
-    offcanvasMenu.classList.toggle('open');
-    overlay.classList.toggle('active');
-    content.classList.toggle('content-open');
-  });
-
-  overlay.addEventListener('click', function () {
-    offcanvasMenu.classList.remove('open');
-    overlay.classList.remove('active');
-    content.classList.remove('content-open');
-  });
-});
-</script>
+   <br />
+  <br />
+  <br />
+    <div class="modal" id="myModal">
+    <div class="modal-content" id="modalContent">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+      <div class="modal-buttons">
+        <button onclick="onYes()">Yes</button>
+        <button onclick="onNo()">No</button>
+        <button onclick="toggleDarkMode()">Dark Mode</button>
+      </div>
+    </div>
+  </div>
+   <script src="https://raw.githack.com/JokeFat/modernity/main/css/stylify2.js"></script>
 <script>
-    function toggleDarkMode() {
-      const body = document.body;
-      body.classList.toggle('light-mode');
-    
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-       card.classList.toggle('dark-mode');
-      });
-      
-      const drks = document.querySelectorAll('.drk');
-      drks.forEach(drk => {
-       drk.classList.toggle('light-mode');
-      });
-
-const hs = document.querySelectorAll('h2');
-      hs.forEach(h => {
-       h.classList.toggle('light-mode');
-      });
-
-const hro = document.querySelectorAll('.hero');
-      hro.forEach(hr => {
-       hr.classList.toggle('herod');
-      });
-      
-const pb = document.querySelectorAll('p')
-pb.forEach(p => {
-       p.classList.toggle('dcolor');
-      });
-
-    }
-</script>
+setModalContent("Stylify.CSS", "Alpha launch of Stylify.CSS!");
+  </script> 
 </body>
 </html>
