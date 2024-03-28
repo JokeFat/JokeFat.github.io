@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Element Rolling</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com" rel="stylesheet"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+ <style>
+  .mbl{background-color:rgb(63, 54, 245);transition:background-color .2s;}
+ </style>
+</head>
+<body class="bg-gray-900 font-poppins text-white">
+ <div class="container mx-auto mt-10 p-5">
+  <div class="bg-neutral-900 p-8 rounded-lg shadow-md">
+   <h1 class="text-3xl font-bold text-center mb-6">Element Rolling</h1>
+   <div id="result" class="text-lg mb-6 text-center"></div>
+   <div class="flex justify-center">
+    <button id="rollButton" class="mbl hover:bg-indigo-700 font-bold py-2 px-4 rounded">Roll</button>
+   </div>
+  </div>
+ </div>
+ <script>
+        $(document).ready(function () {
+            
+            function rollAnimation() {
+                var $rollButton = $('#rollButton');
+                $rollButton.prop('disabled', true);
+                anime({
+                    targets: '#rollButton',
+                    scale: .8, 
+                    delay: 70,
+                    duration: 100,
+                    easing: 'linear',
+                    complete: function (anim) {
+                        anime({
+                            targets: '#rollButton',
+                            scale: 1, 
+                            duration: 100,
+                            delay: 10,
+                            easing: 'linear'
+                        });
+                        updateResult();
+      $rollButton.prop('disabled', false); 
+                        
+                    }
+                });
+
+                anime({
+                    targets: '#result',
+                    translateX: ['-105', '0'], 
+                    opacity: [-.5, 1],
+                    duration: 500,
+                    easing: 'easeOutQuad'
+                });
+            }
+
+            function updateResult() {
+                var elements = {
+    "Stone": "Common",
+    "Water": "Common",
+    "Wind": "Common",
+    "Flame": "Common",
+    "Metal": "Uncommon",
+    "Rain": "Uncommon",
+    "Cloud": "Uncommon",
+    "Ash": "Uncommon",
+    "Crystal": "Rare",
+    "Ocean": "Rare",
+    "Breath": "Rare",
+    "Spark": "Rare",
+    "Pebble": "Legendary",
+    "Mist": "Legendary",
+    "Smoke": "Legendary",
+    "Heat": "Legendary",
+    "Light": "Common",
+    "Darkness": "Common",
+    "Ice": "Common",
+    "Earth": "Common",
+    "Thunder": "Uncommon",
+    "Storm": "Uncommon",
+    "Snow": "Uncommon",
+    "Sand": "Uncommon",
+    "Diamond": "Rare",
+    "Flower": "Rare",
+    "Aura": "Rare",
+    "Shadow": "Legendary",
+    "Nova": "Legendary",
+    "Sun": "Legendary",
+    "Moon": "Legendary",
+    "Star": "Common",
+    "Galaxy": "Common",
+    "Void": "Common",
+    "Planet": "Common",
+    "Frost": "Uncommon",
+    "Tornado": "Uncommon",
+    "Volcano": "Uncommon",
+    "Cave": "Uncommon",
+    "Sapphire": "Rare",
+    "Ruby": "Rare",
+    "Emerald": "Rare",
+    "Amethyst": "Rare",
+    "Eclipse": "Legendary",
+    "Comet": "Legendary",
+    "Aurora": "Legendary",
+    "Twilight": "Legendary",
+    "Glow": "Common",
+    "Glacier": "Common",
+    "Quake": "Common",
+    "Gust": "Common",
+    "Thunderstorm": "Uncommon",
+    "Drought": "Uncommon",
+    "Blizzard": "Uncommon",
+    "Desert": "Uncommon",
+    "Jade": "Rare",
+    "Topaz": "Rare",
+    "Opal": "Rare",
+    "Pearl": "Rare",
+    "Solar": "Legendary",
+    "Lunar": "Legendary",
+    "Celestial": "Legendary",
+    "Abyss": "Legendary",
+    "Flare": "Common",
+    "Frostbite": "Common",
+    "Whirlpool": "Common",
+    "Avalanche": "Common",
+    "Cyclone": "Uncommon",
+    "Sandstorm": "Uncommon",
+    "Tsunami": "Uncommon",
+    "Magma": "Uncommon",
+    "Onyx": "Rare",
+    "Garnet": "Rare",
+    "Turquoise": "Rare",
+    "Lapis": "Rare",
+    "Eternal": "Legendary",
+    "Supernova": "Legendary",
+    "Eclipse": "Legendary",
+    "Meteor": "Legendary",
+    "Radiant": "Common",
+    "Ethereal": "Common",
+    "Inferno": "Common",
+    "Aurora": "Common",
+    "Tempest": "Uncommon",
+    "Blaze": "Uncommon",
+    "Crystalline": "Uncommon",
+    "Midnight": "Uncommon",
+    "Amber": "Rare",
+    "Citrine": "Rare",
+    "Peridot": "Rare",
+    "Moonstone": "Rare",
+    "Nebula": "Legendary",
+    "Galactic": "Legendary",
+    "Warp": "Legendary",
+    "Chaos": "Legendary",
+    "Tidal": "Common",
+    "Solaris": "Common",
+    "Lunaris": "Common",
+    "Stellar": "Common",
+    "Vortex": "Uncommon",
+    "Flux": "Uncommon",
+    "Crusade": "Uncommon",
+    "Shimmer": "Uncommon",
+    "Beryl": "Rare",
+    "Spinel": "Rare",
+    "Tourmaline": "Rare",
+    "Obsidian": "Rare",
+    "Cosmic": "Legendary",
+    "Empyrean": "Legendary",
+    "Elysian": "Legendary",
+    "Chrono": "Legendary",
+    "Serenity": "Common",
+    "Radiance": "Common",
+    "Eclipse": "Common",
+    "Twinkle": "Common",
+    "Bluster": "Uncommon",
+    "Zephyr": "Uncommon",
+    "Cinder": "Uncommon",
+    "Blast": "Uncommon",
+    "Jasper": "Rare",
+    "Alexandrite": "Rare",
+    "Moonstone": "Rare",
+    "Stardust": "Rare",
+    "Astral": "Legendary",
+    "Celestial": "Legendary",
+    "Nether": "Legendary",
+    "Mythic": "Legendary",
+    "Harmony": "Common",
+    "Tranquility": "Common",
+    "Radiant": "Common",
+    "Luminous": "Common",
+    "Cascade": "Uncommon",
+    "Torrent": "Uncommon",
+    "Pyro": "Uncommon",
+    "Frostfire": "Uncommon",
+    "Sapphire": "Rare",
+    "Emerald": "Rare",
+    "Ruby": "Rare",
+    "Diamond": "Rare",
+    "Eternal": "Legendary",
+    "Arcane": "Legendary",
+    "Eclipse": "Legendary",
+    "Cosmos": "Legendary",
+    "Ripple": "Common",
+    "Mystic": "Common",
+    "Aurora": "Common",
+    "Enigma": "Common",
+    "Tempest": "Uncommon",
+    "Eclipse": "Uncommon"
+                };
+
+                var keys = Object.keys(elements);
+                var rolledElement = keys[Math.floor(Math.random() * keys.length)];
+                var rarity = elements[rolledElement];
+
+                var resultText = "You rolled: " + rolledElement + "<br>Rarity: " + rarity.charAt(0).toUpperCase() + rarity.slice(1) ;
+
+                $('#result').html(resultText);
+            }
+
+            $('#rollButton').click(function () {
+                rollAnimation(); 
+            });
+
+            updateResult();
+        });
+ </script>
+</body>
+</html>
